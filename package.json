@@ -1,0 +1,13 @@
+{
+  "name": "egg-swagger",
+  "version": "0.1.0",
+  "description": "swagger-ui-dist plugin for egg",
+  "eggPlugin": {
+    "name": "swagger"
+  },
+  "dependencies": {
+    "koa-static-cache": "^5.1.3",
+    "mustache": "^4.0.1",
+    "swagger-ui-dist": "^3.26.0"
+  }
+}
