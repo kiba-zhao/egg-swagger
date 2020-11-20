@@ -20,10 +20,7 @@ module.exports = app => {
     },
     swaggerOpts: {
       title: app.name,
-      urls: [
-        { url: 'openapi.yml', name: '服务接口' },
-        { url: 'webapi.yml', name: '网页接口' }
-      ],
+      url: 'openapi.yml',
       layout: 'StandaloneLayout'
     }
   };
