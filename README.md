@@ -21,7 +21,8 @@ exports.swagger = {
 ```javascript
 exports.swagger = {
     staticOpts: {
-      prefix: '/public/docs/',
+      prefix: '/docs/',
+      dir: path.join(appInfo.baseDir, 'app/docs'),
       dynamic: true,
       preload: false,
       buffer: false,
@@ -29,21 +30,18 @@ exports.swagger = {
     },
     swaggerOpts: {
       title: app.name,
-      urls: [
-        { url: 'openapi.yml', name: '服务接口' },
-        { url: 'webapi.yml', name: '网页接口' }
-      ],
+      url: 'openapi.yml',
       layout: 'StandaloneLayout'
     }
 };
 ```
 
 ## 使用 ##
-启用eggjs服务后，访问 http://localhost:7001/public/docs/
+启用eggjs服务后，访问 http://localhost:7001/docs/
 ```bash
 npm i
 npm run dev
-open http://localhost:7001/public/docs/
+open http://localhost:7001/docs/
 ```
 
 

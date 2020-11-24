@@ -6,13 +6,16 @@
  */
 'use strict';
 
+const path = require('path');
+
 module.exports = app => {
 
   const exports = {};
 
   exports.swagger = {
     staticOpts: {
-      prefix: '/public/docs/',
+      prefix: '/docs/',
+      dir: path.join(app.baseDir, 'app/docs'),
       dynamic: true,
       preload: false,
       buffer: false,
