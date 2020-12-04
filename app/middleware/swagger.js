@@ -47,5 +47,5 @@ module.exports = config => {
   });
   if (!staticOpts.dir)
     return swaggerStatic;
-  return compose(swaggerStatic, staticCache(staticOpts.dir, staticOpts));
+  return compose([swaggerStatic, staticCache(staticOpts.dir, staticOpts)]);
 };
