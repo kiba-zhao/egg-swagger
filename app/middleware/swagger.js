@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const path = require('path');
 const fs = require('fs');
 const pathToSwaggerUi = require('swagger-ui-dist').absolutePath();
+const compose = require('koa-compose');
 const staticCache = require('koa-static-cache');
 
 const INDEX_FILE_NAME = 'index.html';
@@ -40,9 +41,11 @@ module.exports = config => {
   indexFile.md5 = crypto.createHash(HASH_NAME).update(buffer).digest(HASH_ENCODING);
   indexFile.length = buffer.byteLength;
 
-  return staticCache(pathToSwaggerUi, staticOpts, {
+  const swaggerStatic = staticCache(pathToSwaggerUi, staticOpts, {
     [staticOpts.prefix]: indexFile,
     [staticOpts.prefix + INDEX_FILE_NAME]: indexFile
   });
-
+  if (!staticOpts.dir)
+    return swaggerStatic;
+  return compose(swaggerStatic, staticCache(staticOpts.dir, staticOpts));
 };

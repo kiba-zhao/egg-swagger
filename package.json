@@ -6,6 +6,7 @@
     "name": "swagger"
   },
   "dependencies": {
+    "koa-compose": "^4.1.0",
     "koa-static-cache": "^5.1.3",
     "mustache": "^4.0.1",
     "swagger-ui-dist": "^3.26.0"
